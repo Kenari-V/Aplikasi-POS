@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.navbar-cashier {
+    padding: 40px 40px;
+    box-shadow: 0 3px 8px #888888;
+    font: 'Poppins',sans-serif;
+}
