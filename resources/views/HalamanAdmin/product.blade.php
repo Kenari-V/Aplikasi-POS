@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/product.css')}}">
 </head>
 <body>
-{{-- </div>
+<!-- navbar  -->
 <div class="navbar-top">
     <div class="navbar-logo-menu">
         <!-- <i class="icon-headbar-menu"><ion-icon name="menu-outline"></ion-icon></i> -->
@@ -56,32 +56,58 @@
             <li><a href="/Laporan" class="laporan-menu"><ion-icon name="reader-outline" class="laporan-menu-icon-sidebar"></ion-icon>Laporan</a></li>
         </ul>
     </div>
-</label> --}}
+</label>
 <div class="content-product">
     <div class="table-product">
-        <table border="1" class="table-border">
-            <tr>
-                <td>Nama Produk</td>
-                <td>Harga Produk</td>
-                <td>Qty</td>
-                <td>Barcode</td>
-            </tr>
-            <tr></tr>
+        <table class="table-border">
+            <thead>
+                <tr>
+                    <th>Nama Produk</th>
+                    <th>Nama Category</th>
+                    <th>Harga Produk</th>
+                    <th>Qty</th>
+                    <th>Barcode</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>test produk dummy</td>
+                    <td>sepatu</td>
+                    <td>13234</td>
+                    <td>2</td>
+                    <td>612313</td>
+                </tr>
+                <tr>
+                    <td>test produk dummy 2</td>
+                    <td>gitar</td>
+                    <td>53131</td>
+                    <td>3</td>
+                    <td>602341</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
 
 
-
-<script src="{{ asset('assets/js/main.js') }}"></script>
 <script>
-//     var dropdown = document.querySelector('.dropdown-profile-2');
+    var dropdown = document.querySelector('.dropdown-profile-2');
 
-//     dropdown.onclick = () => {
-//     document.querySelector(".dropdown-profile-dropdown").classList.toggle('active');
-//     dropdown.classList.toggle("active");
-// }
+    dropdown.onclick = () => {
+    document.querySelector(".dropdown-profile-dropdown").classList.toggle('active');
+}
+
 </script>
+<script>
+    var menu = document.querySelector('.toggle-sidebar');
+
+    menu.onclick = () => {
+    document.querySelector('.sidebar-menu').classList.toggle('active');
+    menu.classList.toggle('active');
+}
+
+</script>
+<script src=""></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

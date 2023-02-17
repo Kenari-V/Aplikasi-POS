@@ -51,6 +51,7 @@ Route::controller(LoginController::class)->group(function(){
 Route::middleware([CekUserLogin::class])->group(function(){
     Route::get('/',[dashboardcontroller::class,'index'])->name('layout');
     Route::get('/Product',[ProductController::class,'index']);
+    Route::get('/Product/tambah-product',[ProductController::class,'create']);
 });
 
 Route::get('/kasir',[kasircontroller::class,'index'])->middleware('auth');

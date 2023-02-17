@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cart', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreignId('id_product')->references('id_product')->on('product')->onDelete('cascade');
+        Schema::create('laporan', function (Blueprint $table){
+
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart');
+        Schema::dropIfExists('laporan');
     }
 };

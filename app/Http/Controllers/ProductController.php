@@ -10,4 +10,11 @@ class ProductController extends Controller
     {
         return view('HalamanAdmin.product');
     }
+
+
+
+    public function create()
+    {
+        return view('HalamanAdmin.createProduct');
+    }
 }

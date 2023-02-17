@@ -201,6 +201,7 @@
     position: relative;
     margin-left: 20px;
     color: black;
+    text-decoration: none;
 }
 
 .icon-dropdown-profile {
@@ -243,10 +244,12 @@
 
 .dropdown-nav-text-profile {
     padding-right: 20px;
+    text-decoration: none;
 }
 
 .dropdown-nav-text-logout {
     padding-right: 20px;
+    text-decoration: none;
 }
 
 .dropdown-nav-icon-profile, .dropdown-nav-icon-logout {
@@ -276,6 +279,7 @@
     right: 350px;
     padding-left: 4px;
     color: black;
+    text-decoration: none;
 }
 
 .icon-add-new-order {
@@ -335,7 +339,8 @@
 
 .dashboard-menu {
     margin-top: 65px;
-    color: black;
+    color: rgb(255, 255, 255);
+    background-color: red;
     font-weight: 500;
     font-size: 25px;
     padding: 5px 0;
@@ -344,6 +349,7 @@
     text-decoration: none;
     transition: 0.2s ease-out;
 }
+
 .product-menu {
     color: black;
     margin-top: 10px;
