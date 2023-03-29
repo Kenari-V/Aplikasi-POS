@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cart', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreignId('id_product')->references('id_product')->on('product')->onDelete('cascade');
+            $table->increments('id_cart');
+            $table->foreignId('id_product');
+            $table->string('id_customer');
+            $table->string('nama_product');
+            $table->integer('harga_product');
+            $table->integer('qty');
+            $table->integer('stock');
+            $table->timestamps();
         });
     }
 

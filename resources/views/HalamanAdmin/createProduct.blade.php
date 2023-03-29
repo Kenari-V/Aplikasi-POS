@@ -17,10 +17,12 @@
     </div>
     <div class="navbar-button-order">
         <ul class="navbar-header-list">
-            <li class="new-order-header">
-                <i class="icon-add-new-order"><ion-icon name="add-outline"></ion-icon></i>
-                <a href="kasir" class="text-neworder">New Order</a>
-            </li>
+            <div class="new-order-header">
+                <li class="new-order-admin">
+                    <i class="icon-add-new-order"><ion-icon name="add-outline"></ion-icon></i>
+                    <a href="kasir" class="text-neworder">New Order</a>
+                </li>
+            </div>
             <li class="notification-headbar">
                 <a href="" class="notification-icon"><ion-icon name="notifications-outline"></ion-icon></a>
             </li>
@@ -58,44 +60,51 @@
         </ul>
     </div>
 </label>
-<div class="content-tambah-product">
-    <form action="/product/tambah-product" method="POST" class="form-add-product">
-        <div class="border-header-add-product">
-            <div class="text-header-add-product">Tambah Product</div>
-        </div>
-        <div class="form-group">
-            <label for="Nama Product" class="input-product-text">Nama Product : </label>
-            <input type="text" name="nama_product" class="box-input-create" placeholder="   Silahkan Masukan Nama Product">
-        </div>
-        <div class="form-group">
-            <label for="Harga Product" class="input-product-text">Harga Product : </label>
-            <input type="text" name="harga_product" class="box-input-create" placeholder="  Silahkan Masukan Harga Product">
-        </div>
-        <div class="form-group">
-            <label for="Qty Product" class="input-product-text">Qty : </label>
-            <input type="number" name="qty" class="box-input-create" placeholder="  Silahkan Masukan Jumlah Produk">
-        </div>
-        <div class="form-group">
-            <label for="Category Product" class="input-product-text">Category :</label>
-           <select name="Nama Category" class="box-input-category"><option value=""></option></select>
-        </div>
-        <div class="form-group">
-            <label for="Barcode Product" class="input-product-text">Barcode :</label>
-            <input type="text" name="barcode_product" class="box-input-create" placeholder="  Silahkan Masukin Barcode">
-        </div>
-        <div class="form-group">
-            <label for="Foto Product" class="input-product-text">Foto Product : </label>
-            <input type="file" name="photo_product">
-        </div>
-        <div class="submit-create-data">
-            <button type="submit" class="button-submit-create">Simpan</button>
-        </div>
-        <div class="submit-cancel-data">
-            <button type="submit" class="button-cancel-create">Cancel</button>
-        </div>
-    </form>
+<div class="content-bg">
+    <div class="content-tambah-product">
+        <form action="/Product/tambah-product" method="POST" class="form-add-product">
+            @csrf
+            <div class="border-header-add-product">
+                <div class="text-header-add-product">Tambah Product</div>
+            </div>
+            <div class="form-group">
+                <label for="Nama Product" class="input-product-text">Nama Product : </label>
+                <input type="text" name="nama_product" class="box-input-create" placeholder="Silahkan Masukan Nama Product">
+            </div>
+            <div class="form-group">
+                <label for="Harga Product" class="input-product-text">Harga Product : </label>
+                <input type="text" name="harga_product" class="box-input-create" placeholder="Silahkan Masukan Harga Product">
+            </div>
+            <div class="form-group">
+                <label for="Qty Product" class="input-product-text">Qty : </label>
+                <input type="number" name="qty" class="box-input-create" placeholder="Silahkan Masukan Jumlah Produk">
+            </div>
+            <div class="form-group">
+                <label for="Category Product" class="input-product-text">Category :</label>
+                <select name="id_category" class="box-input-category">
+                    <option value=""></option>
+                    @foreach ($category as $cat )
+                        <option value="{{ $cat->id_category }}">{{ $cat->nama_category }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Barcode Product" class="input-product-text">Barcode :</label>
+                <input type="text" name="barcode" class="box-input-create" placeholder="Silahkan Masukin Barcode">
+            </div>
+            <div class="form-group">
+                <label for="Foto Product" class="input-product-text">Foto Product : </label>
+                <input type="file" name="photo_product">
+            </div>
+            <div class="submit-create-data">
+                <button type="submit" class="button-submit-create">Simpan</button>
+            </div>
+            <div class="submit-cancel-data">
+                <a type="submit" href="/Product" class="button-cancel-create">Cancel</a>
+            </div>
+        </form>
+    </div>
 </div>
-
 
 <script>
     var menu = document.querySelector('.toggle-sidebar');

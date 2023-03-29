@@ -160,7 +160,6 @@
 }
 
 .navbar-button-order  {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -171,7 +170,11 @@
 }
 
 .navbar-top {
-    padding: 40px 40px;
+    background-color: #875A7B;
+    align-items: center;
+    display: block;
+    width: 100%;
+    padding: 0.5px 0.5px;
     box-shadow: 0 3px 8px #888888;
     font: 'Poppins',sans-serif;
 }
@@ -190,6 +193,7 @@
 }
 
 .icon-profile {
+    color: white;
     font-size: 40px;
     top: 5px;
     position: relative;
@@ -200,11 +204,12 @@
     font-size: 23px;
     position: relative;
     margin-left: 20px;
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
 .icon-dropdown-profile {
+    color: white;
     font-size: 25px;
     top: 7px;
     position: relative;
@@ -214,7 +219,7 @@
 .dropdown-profile-dropdown {
     height: 120px;
     position: absolute;
-    top: 65px;
+    top: 70px;
     right: 0;
     background-color: #fff;
     padding: 10px 25px;
@@ -262,15 +267,16 @@
     display: block;
 }
 
+.new-order-admin {
+    display: flex;
+    width: 150px;
+    height: 55px;
+    align-items: center;
+    text-align: center;
+}
 
 .new-order-header {
-    border: 1px solid rgb(146, 146, 146);
-    border-radius: 10px;
-    display: flex;
-    border-width: 1px;
-    width: 150px;
-    margin-top: 5px;
-    margin-right: 40px;
+    text-align: center;
 }
 
 .text-neworder {
@@ -278,12 +284,12 @@
     margin-top: 8px;
     right: 350px;
     padding-left: 4px;
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
 .icon-add-new-order {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 23px;
     margin-top: 5px;
     padding-top: 5px;
@@ -308,16 +314,17 @@
 
 .notification-icon {
     font-size: 35px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .sidebar-menu {
-    height: 100vh;
+    height: 100%;
     width: 300px;
-    position: absolute;
+    margin-bottom: 20px;
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: rgb(48, 48, 48);
     box-shadow: 0 5px 8px #888888;
     transition: 0.5s;
 }
@@ -351,7 +358,7 @@
 }
 
 .product-menu {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 10px;
     font-weight: 500;
     font-size: 25px;
@@ -363,7 +370,7 @@
 }
 
 .customer-menu {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 10px;
     font-weight: 500;
     font-size: 25px;
@@ -375,7 +382,7 @@
 }
 
 .category-menu {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 10px;
     font-weight: 500;
     font-size: 25px;
@@ -388,7 +395,7 @@
 }
 
 .role-menu {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 10px;
     font-weight: 500;
     font-size: 25px;
@@ -400,7 +407,7 @@
 }
 
 .laporan-menu {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 10px;
     font-weight: 500;
     font-size: 25px;
@@ -555,3 +562,71 @@ input:checked ~ .sidebar-menu-parents {
     color: white;
 }
 
+.new-order-header:hover .new-order-admin {
+    background-color: rgb(104,69,95);
+    cursor: pointer;
+}
+
+.content-dashboard {
+    display: flex;
+}
+
+.card-body-text {
+    padding-top: 20px;
+    padding-left: 320px;
+}
+
+.content-db-text {
+    font-size: 40px;
+}
+
+.content-db-text-p {
+    padding-top: 10px;
+}
+
+.card-order-body {
+    position: relative;
+    margin-left: 100px;
+    border: solid gray 1px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 200px;
+    height: 100px;
+}
+
+.cart-icon-cd {
+    margin-left: 15px;
+    margin-top: 25px;
+    font-size: 45px;
+}
+
+.card-body-4 {
+    display: flex;
+}
+
+.text-card-bd-cart {
+    font-size: 25px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.no-card-bd-cart {
+    font-size: 25px;
+    margin-top: 45px;
+    margin-left: 105px;
+    position: fixed;
+}
+
+.no-card-bd-total{
+    font-size: 25px;
+    margin-top: 45px;
+    position: fixed;
+    margin-left: 105px;
+}
+
+.no-card-bd-cart-2 {
+    font-size: 25px;
+    margin-top: 45px;
+    margin-left: 105px;
+    position: fixed;
+}

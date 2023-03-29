@@ -1,0 +1,42 @@
+@import url(./tambahcategory.css);
+
+.category-menu {
+    color: rgb(255, 255, 255);
+    background-color: rgb(48, 48, 48);
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+
+.product-menu{
+    color: rgb(255, 255, 255);
+    background-color: rgb(48, 48, 48);
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+
+.customer-menu {
+    color: rgb(255, 255, 255);
+    background-color: red;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 5px 0;
+    display: block;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+
+}
+

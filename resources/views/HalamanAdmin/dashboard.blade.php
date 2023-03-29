@@ -30,15 +30,17 @@
         <div class="navbar-button-order">
             <ul class="navbar-header-list">
                 <li class="new-order-header">
-                    <i class="icon-add-new-order"><ion-icon name="add-outline"></ion-icon></i>
-                    <a href="kasir" class="text-neworder">New Order</a>
+                    <div class="new-order-admin">
+                        <i class="icon-add-new-order"><ion-icon name="add-outline"></ion-icon></i>
+                        <a href="kasir" class="text-neworder">New Order</a>
+                    </div>
                 </li>
                 <li class="notification-headbar">
                     <a href="" class="notification-icon"><ion-icon name="notifications-outline"></ion-icon></a>
                 </li>
                 <li class="profile-header">
                     <i class="icon-profile"><ion-icon name="person-circle-outline"></ion-icon></i>
-                    <a href="" class="text-name-profile">Nama User</a>
+                    <a href="" class="text-name-profile">masbro</a>
                     <a href="#" class="dropdown-profile-2"><i class="icon-dropdown-profile"><ion-icon name="chevron-down-outline"></a></ion-icon></i>
                 </li>
             </ul>
@@ -72,11 +74,41 @@
     </label>
     <!-- content-dashboard -->
     <div class="content-dashboard">
-        <div class="content-wrapper">
+        <div class="card-body-text">
+            <h3 class="content-db-text">Hi, Good Morning</h3>
+            <p class="content-db-text-p">Your Dashboard Give Your Business Process</p>
+        </div>
+        <div class="card-order-body">
+            <div class="card-body-4">
+                <div class="icon-cardbd">
+                    <ion-icon name="cart-outline" class="cart-icon-cd"></ion-icon>
+                </div>
+                <p class="text-card-bd-cart">Total Jual</p>
+                <h4 class="no-card-bd-cart">{{$totalorder}}</h4>
+            </div>
+        </div>
+        <div class="card-order-body">
+            <div class="card-body-4">
+                <div class="icon-cardbd">
+                    <ion-icon name="albums-outline" class="cart-icon-cd"></ion-icon>
+                </div>
+                <p class="text-card-bd-cart">Produk</p>
+                <h4 class="no-card-bd-total">{{$totalcustomer}}</h4>
+            </div>
+        </div>
+        <div class="card-order-body">
+            <div class="card-body-4">
+                <div class="icon-cardbd">
+                    <ion-icon name="people-outline" class="cart-icon-cd"></ion-icon>
+                </div>
+                <p class="text-card-bd-cart">Customer</p>
+                <h4 class="no-card-bd-cart-2">{{$totalproduk}}</h4>
+            </div>
+        </div>
 
-    </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

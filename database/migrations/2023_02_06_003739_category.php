@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('category', function (Blueprint $table){
             $table->increments('id_category');
             $table->string('nama_category');
-            $table->string('id_product');
+            $table->string('id_product')->nullable();
         });
     }
 

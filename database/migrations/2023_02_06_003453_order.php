@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->increments('id_order');
-            $table->integer('id_product');
             $table->integer('id_customer');
-            $table->float('jumlah_bayar');
-            $table->float('total_bayar');
+            $table->float('jumlah_bayar',16,2);
+            $table->float('kembalian',16,2);
         });
     }
 
