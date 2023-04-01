@@ -28,7 +28,7 @@
             </li>
             <li class="profile-header">
                 <i class="icon-profile"><ion-icon name="person-circle-outline"></ion-icon></i>
-                <a href="" class="text-name-profile">masbro</a>
+                <a href="" class="text-name-profile">{{ Auth::user()->name }}</a>
                 <a href="#" class="dropdown-profile-2"><i class="icon-dropdown-profile"><ion-icon name="chevron-down-outline"></a></ion-icon></i>
             </li>
         </ul>
@@ -63,7 +63,7 @@
 <div class="content-product">
     <div class="table-product">
         <div class="Title-content-product">
-            <h2 class="title-product">Daftar Customer</h2>
+            <h2 class="title-product">Daftar Users</h2>
             <div class="container-product">
                 {{-- <form action="/Customer" method="POST" class="form-produk">
                 @csrf --}}

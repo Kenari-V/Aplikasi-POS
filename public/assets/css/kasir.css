@@ -337,7 +337,7 @@
 }
 
 #kotak-product {
-    height: 780px;
+    height: 820px;
 }
 
 .tunai-input {
@@ -360,4 +360,16 @@
 }
 
 .text-muted {
+}
+
+.pagination-produk {
+    display: flex;
+    font-size: 23px;
+    gap: 30px;
+
+}
+
+#tambah-customer-select {
+    color: gray;
+    opacity: 60%;
 }

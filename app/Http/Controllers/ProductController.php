@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $pagination = 10;
+        $pagination = 6;
         if($request->input('search_product'))
         {
             $dataProduct = Product::where('nama_product','LIKE','%' .$request->query('search_product').'%')->paginate($pagination);
@@ -42,6 +42,7 @@ class ProductController extends Controller
 
     public function tambahData(Request $request)
     {
+
         $this->validate($request,[
             'nama_product' => 'required',
             'harga_product' => 'required',

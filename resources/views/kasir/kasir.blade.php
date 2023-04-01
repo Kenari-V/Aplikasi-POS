@@ -22,11 +22,11 @@
 </head>
 <body>
 <!-- Loading-website (By Slavus)-->
-{{-- <div id="loader-wrapper">
+<div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
           <div class="loader-section section-right"></div>
-</div> --}}
+</div>
 {{-- Navbar head --}}
 
 <form action="/kasir" method="POST" id="form-order">
@@ -53,7 +53,7 @@
                 <div class="profile-container">
                     <div class="profile-content-head">
                         <ion-icon name="person-circle-outline" class="profile-icon-head"></ion-icon>
-                        <a href="Profile" class="profile-name-head">NamaUser</a>
+                        <a href="Profile" class="profile-name-head">{{ Auth::user()->name }}</a>
                         <a href="/logout"><ion-icon name="log-out-outline" class="logout-icon"></ion-icon></a>
                     </div>
                 </div>
@@ -87,13 +87,16 @@
                         <div class="action-wrap">
                             <a href="#" class="btn btn-primary btn-sm float-right item-product" prod-id="{{ $produk->id_product }}"> <i class="fa fa-cart-plus"></i> Add </a>
                             <div class="price-wrap h5">
-                                <span class="price-new">{{$produk->harga_producto}}</span>
+                                <span class="price-new">{{$produk->harga_product}}</span>
                             </div> <!-- price-wrap.// -->
                         </div> <!-- action-wrap -->
                     </figcaption>
                 </figure>
                 @endforeach <!-- card // -->
             </div> <!-- col // -->
+            <div class="pagination-produk">
+                {{ $product->links('pagination::default')}}
+            </div>
                 </div>
                 <div class="col-md-4">
             <div class="card">
@@ -159,12 +162,13 @@
             </div>
             </div> <!-- box.// -->
             <div class="input-barcode">
-                <input type="text" class="input-barcode-box" placeholder="Masukan Barcode">
+                <input type="text" class="input-barcode-box" id="input-barcode" placeholder="Masukan Barcode">
                 <div class="customer-select">
                     <select name="id_customer" id="customer" class="customer-box-input-select">
                         @foreach ($dataCustomer as $dc )
                             <option value="{{ $dc->id_customer }}">{{ $dc->nama_customer }}</option>
                         @endforeach
+                            <option value="kasir/tambah-customer" id="tambah-customer-select"><a href="kasir/tambah-customer" class="menambah-customer">+ Tambah Customer</a></option>
                     </select>
                     <div class="tunai-input">
                         <label for="tunai-kasir">Tunai :</label>
@@ -178,6 +182,18 @@
             </section>
     </div>
 </form>
+
+<script>
+    document.getElementById('customer').addEventListener('change', function() {
+  val = $( "#customer" ).val();
+
+  console.log(val)
+  if(val === 'kasir/tambah-customer') {
+    window.location.replace('kasir/tambah-customer');
+    }
+});
+
+</script>
 
 <script>
     <script src="{{asset('asset-template/assets/js/jquery-2.0.0.min.js')}}" type="text/javascript"></script>
@@ -252,6 +268,8 @@
             });
         }
 
+        $()
+
         $('.item-product').on("click" , function(){
             var prod_id = $(this).attr('prod-id');
             var cust_id = $('#customer').val();
@@ -288,6 +306,16 @@
         $('#submit-btn').on("click", function(){
             $('#form-order').submit();
         });
+
+        $('#input-barcode').on("keyup", function(e){
+            if (e.which == 13){
+                var barcode = $(this).val();
+                var cust_id = $('#customer').val();
+                ajaxRequest(barcode,cust_id,1,'item-click');
+            }
+        });
+
+
     });
 
 

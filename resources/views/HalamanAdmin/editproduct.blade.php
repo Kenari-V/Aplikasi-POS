@@ -28,7 +28,7 @@
             </li>
             <li class="profile-header">
                 <i class="icon-profile"><ion-icon name="person-circle-outline"></ion-icon></i>
-                <a href="" class="text-name-profile">Nama User</a>
+                <a href="" class="text-name-profile">{{ Auth::user()->name }}</a>
                 <a href="#" class="dropdown-profile-2"><i class="icon-dropdown-profile"><ion-icon name="chevron-down-outline"></a></ion-icon></i>
             </li>
         </ul>
@@ -83,7 +83,6 @@
             <div class="form-group">
                 <label for="Category Product" class="input-product-text">Category :</label>
                 <select name="id_category" class="box-input-category">
-                    <option value=""></option>
                     @foreach ($category as $cat )
                         <option value="{{ $cat->id_category }}">{{ $cat->nama_category }}</option>
                     @endforeach

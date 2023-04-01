@@ -1,0 +1,46 @@
+@import url(./tambahcustomerkasir.css);
+
+.table-border {
+    background-color: white;
+    border-collapse: collapse;
+    position: relative;
+    margin-left: 20px;
+    top: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    width: 1130px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table-border thead tr {
+    background-color: #4266c9;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-border th,
+.table-border td {
+    padding: 12px 15px;
+}
+
+.table-border tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-border tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-border tbody tr:last-of-type {
+    border-bottom: 2px solid #4266c9;
+}
+
+.table-border tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.table-order {
+    padding-top: 80px;
+    padding-left: 170px;
+}

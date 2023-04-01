@@ -418,6 +418,8 @@
     transition: 0.2s ease-out;
 }
 
+
+
 /*
 .sidebar-menu{
     position: fixed;
@@ -569,6 +571,7 @@ input:checked ~ .sidebar-menu-parents {
 
 .content-dashboard {
     display: flex;
+    padding-top: 35px;
 }
 
 .card-body-text {
@@ -585,8 +588,8 @@ input:checked ~ .sidebar-menu-parents {
 }
 
 .card-order-body {
-    position: relative;
-    margin-left: 100px;
+    position: inherit;
+    margin-left: 60px;
     border: solid gray 1px;
     border-radius: 10px;
     margin-top: 20px;
@@ -596,7 +599,7 @@ input:checked ~ .sidebar-menu-parents {
 
 .cart-icon-cd {
     margin-left: 15px;
-    margin-top: 25px;
+    margin-top: 28px;
     font-size: 45px;
 }
 
@@ -614,19 +617,83 @@ input:checked ~ .sidebar-menu-parents {
     font-size: 25px;
     margin-top: 45px;
     margin-left: 105px;
-    position: fixed;
+    position: absolute;
+    display: inline;
 }
 
 .no-card-bd-total{
     font-size: 25px;
     margin-top: 45px;
-    position: fixed;
+    position: absolute;
     margin-left: 105px;
+    display: inline;
 }
 
 .no-card-bd-cart-2 {
+    display: inline;
     font-size: 25px;
     margin-top: 45px;
     margin-left: 105px;
-    position: fixed;
+    position: absolute;
 }
+
+.grafik-dashboard {
+    margin-left: 330px;
+    margin-top: 20px;
+    display: flex;
+}
+
+#grafikHarian {
+    margin-left: 20px;
+}
+
+
+.table-border {
+    background-color: white;
+    border-collapse: collapse;
+    position: relative;
+    margin-left: 20px;
+    top: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    width: 1130px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table-border thead tr {
+    background-color: #4266c9;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-border th,
+.table-border td {
+    padding: 12px 15px;
+}
+
+.table-border tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-border tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-border tbody tr:last-of-type {
+    border-bottom: 2px solid #4266c9;
+}
+
+.table-border tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.table-dashboard {
+    margin-left: 320px;
+    padding-top: 50px;
+}
+
+.space-dashboard{
+    padding-top: 50px;
+}
+

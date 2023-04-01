@@ -1,17 +1,4 @@
-@import url(./product.css);
-
-.dashboard-menu {
-    margin-top: 65px;
-    color:  rgb(255, 255, 255);
-    background-color: rgb(48, 48, 48);
-    font-weight: 500;
-    font-size: 25px;
-    padding: 5px 0;
-    display: block;
-    text-transform: capitalize;
-    text-decoration: none;
-    transition: 0.2s ease-out;
-}
+@import url(./customer.css);
 
 .product-menu {
     color: rgb(255, 255, 255);
@@ -26,9 +13,9 @@
     transition: 0.2s ease-out;
 }
 
-.laporan-menu {
+.customer-menu {
     color: rgb(255, 255, 255);
-    background-color: red;
+    background-color: rgb(48, 48, 48);
     margin-top: 10px;
     font-weight: 500;
     font-size: 25px;
@@ -37,12 +24,10 @@
     text-transform: capitalize;
     text-decoration: none;
     transition: 0.2s ease-out;
+
 }
 
-.chart-laporan {
-    margin-left: 330px;
-    margin-top: 20px;
-    display: flex;
+.role-menu {
+    background-color: red;
 }
-
 

@@ -54,20 +54,25 @@
         Sign Up
         <span class="underline"></span>
       </button>
-      <form class="form form-signup">
+      <form class="form form-signup" action="/login" method="POST">
+        @csrf
         <fieldset>
           <legend>Please, enter your email, password and password confirmation for sign up.</legend>
           <div class="input-block">
             <label for="signup-email">Email</label>
-            <input id="signup-email" type="email" required>
+            <input id="signup-email" name="email" type="email" required>
           </div>
           <div class="input-block">
-            <label for="signup-password">Password</label>
-            <input id="signup-password" type="password" required>
+            <label for="signup-password">Nama</label>
+            <input id="signup-password" name="name" type="text" required>
           </div>
           <div class="input-block">
-            <label for="signup-password-confirm">Confirm password</label>
-            <input id="signup-password-confirm" type="password" required>
+            <label for="signup-password-confirm">password</label>
+            <input id="signup-password-confirm" name="password" type="password" required>
+          </div>
+          <div class="input-block-2">
+            <label for="signup-password-confirm">level</label>
+            <input id="signup-password-confirm" name="level" type="hidden" required value="2">
           </div>
         </fieldset>
         <button type="submit" class="btn-signup">Register</button>

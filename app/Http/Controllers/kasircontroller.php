@@ -15,8 +15,10 @@ class kasircontroller extends Controller
 {
     public function index()
     {
+
+        $pagination = 6;
         $dataCategory = category::all();
-        $dataProduct = Product::all();
+        $dataProduct = Product::paginate($pagination);
         $dataCustom = customer::all();
         $cartData = cart::all();
         $total_bayar = 0;
@@ -38,6 +40,14 @@ class kasircontroller extends Controller
         //     $cart->delete();
         // }
         $product = Product::find($request->id_product);
+        if (!$product){
+            $product = Product::where('barcode',$request->id_product)->first();
+            if (!$product){
+                return response()->json(['status' => 'error' , 'message' => 'product tidak ditemukan'],404);
+            } else {
+                $request->id_product = $product->id_product;
+            }
+        }
 
         $cart = cart::where('id_product',$request->id_product)->first();
         if (!$cart){
@@ -108,5 +118,30 @@ class kasircontroller extends Controller
 
         return view('kasir.struk',['order' => $order , 'order_detail' => $order_detail ,'total_bayar' => $total_bayar ]);
 
+    }
+
+    public function addcustomer ()
+    {
+        return view('kasir.tambahCustomerkasir');
+    }
+
+    public function tambahcustomer (Request $request)
+    {
+        $this->validate($request,[
+            'nama_customer' => 'required',
+            'contact' => 'required',
+            'address' => 'required'
+        ]);
+
+        $dataCustomer = new customer();
+        $dataCustomer -> nama_customer = $request->nama_customer;
+        $dataCustomer -> contact = $request->contact;
+        $dataCustomer -> address = $request->address;
+        $checksave = $dataCustomer->save();
+        if($checksave){
+            return redirect('/kasir');
+        }else{
+            return redirect()->back();
+        }
     }
 }

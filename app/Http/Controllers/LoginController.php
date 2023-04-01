@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -64,5 +66,25 @@ public function logout(Request $request)
 
     return redirect('/login');
 }
+
+public function register(Request $request)
+{
+    $this->validate($request, [
+       'name' => 'required',
+       'email' => 'required|email|unique:users',
+       'password' => 'required',
+       'level' => 'required'
+    ]);
+
+    $dataUsers = new User();
+    $dataUsers->name = $request->name;
+    $dataUsers->email = $request->email;
+    $dataUsers->password = bcrypt($request->password);
+    $dataUsers->level = $request->level;
+    $checksave = $dataUsers->save();
+    if($checksave){
+        return redirect('/login');
+        }
+    }
 
 }

@@ -1,0 +1,56 @@
+@import url(./kasir.css);
+
+.content-tambah-product {
+    padding-top: 100px;
+    padding-left: 600px
+}
+
+.profile-content-head {
+    padding-left: 800px;
+}
+
+.button-cancel-create {
+    position: absolute;
+}
+
+.input-product-text {
+    font-size: 20px;
+    color: #01041b;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.box-input-create {
+    padding-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    height: 45px;
+    width: 300px;
+    border: 2px solid rgb(211, 200, 200);
+    border-radius: 10px;
+}
+
+.button-submit-create {
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: rgb(133, 237, 255);
+    cursor: pointer;
+}
+
+.submit-cancel-data {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(255, 149, 135);
+    bottom: 40px;
+    left: 150px;
+    padding-top: 7px;
+    padding-left: 25px;
+}

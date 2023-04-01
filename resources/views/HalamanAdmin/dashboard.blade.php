@@ -35,12 +35,9 @@
                         <a href="kasir" class="text-neworder">New Order</a>
                     </div>
                 </li>
-                <li class="notification-headbar">
-                    <a href="" class="notification-icon"><ion-icon name="notifications-outline"></ion-icon></a>
-                </li>
                 <li class="profile-header">
                     <i class="icon-profile"><ion-icon name="person-circle-outline"></ion-icon></i>
-                    <a href="" class="text-name-profile">masbro</a>
+                    <a href="" class="text-name-profile">{{ Auth::user()->name }}</a>
                     <a href="#" class="dropdown-profile-2"><i class="icon-dropdown-profile"><ion-icon name="chevron-down-outline"></a></ion-icon></i>
                 </li>
             </ul>
@@ -73,40 +70,142 @@
         </div>
     </label>
     <!-- content-dashboard -->
-    <div class="content-dashboard">
-        <div class="card-body-text">
-            <h3 class="content-db-text">Hi, Good Morning</h3>
-            <p class="content-db-text-p">Your Dashboard Give Your Business Process</p>
-        </div>
-        <div class="card-order-body">
-            <div class="card-body-4">
-                <div class="icon-cardbd">
-                    <ion-icon name="cart-outline" class="cart-icon-cd"></ion-icon>
-                </div>
-                <p class="text-card-bd-cart">Total Jual</p>
-                <h4 class="no-card-bd-cart">{{$totalorder}}</h4>
+    <div class="content-db"></div>
+        <div class="content-dashboard">
+            <div class="card-body-text">
+                <h3 class="content-db-text">Hi {{Auth::user()->name}}, Good Morning</h3>
+                <p class="content-db-text-p">Your Dashboard Give Your Business Process</p>
             </div>
-        </div>
-        <div class="card-order-body">
-            <div class="card-body-4">
-                <div class="icon-cardbd">
-                    <ion-icon name="albums-outline" class="cart-icon-cd"></ion-icon>
+            <div class="card-order-body">
+                <div class="card-body-4">
+                    <div class="icon-cardbd">
+                        <ion-icon name="cart-outline" class="cart-icon-cd"></ion-icon>
+                    </div>
+                    <p class="text-card-bd-cart">Total Jual</p>
+                    <h4 class="no-card-bd-cart">{{$totalorder}}</h4>
                 </div>
-                <p class="text-card-bd-cart">Produk</p>
-                <h4 class="no-card-bd-total">{{$totalcustomer}}</h4>
             </div>
-        </div>
-        <div class="card-order-body">
-            <div class="card-body-4">
-                <div class="icon-cardbd">
-                    <ion-icon name="people-outline" class="cart-icon-cd"></ion-icon>
+            <div class="card-order-body">
+                <div class="card-body-4">
+                    <div class="icon-cardbd">
+                        <ion-icon name="albums-outline" class="cart-icon-cd"></ion-icon>
+                    </div>
+                    <p class="text-card-bd-cart">Produk</p>
+                    <h4 class="no-card-bd-total">{{$totalcustomer}}</h4>
                 </div>
-                <p class="text-card-bd-cart">Customer</p>
-                <h4 class="no-card-bd-cart-2">{{$totalproduk}}</h4>
             </div>
+            <div class="card-order-body">
+                <div class="card-body-4">
+                    <div class="icon-cardbd">
+                        <ion-icon name="people-outline" class="cart-icon-cd"></ion-icon>
+                    </div>
+                    <p class="text-card-bd-cart">Customer</p>
+                    <h4 class="no-card-bd-cart-2">{{$totalproduk}}</h4>
+                </div>
+            </div>
+    </div>
+    <div class="grafik-dashboard">
+        <div id="grafik"></div>
+        <div id="grafikHarian"></div>
+    </div>
+    <div class="table-dashboard">
+        <table class="table-border">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Customer</th>
+                    <th>uang Tunai</th>
+                    <th>Kembalian</th>
+                </tr>
+            </thead>
+                <tbody>
+                <tr>
+                    @if (count($order) > 0)
+                    @php($i = 1)
+                    @foreach ($order as $od)
+                    <tr>
+                        <td>{{$i}}</td>
+                        <td>{{$od->customer->nama_customer}}</td>
+                        <td>{{$od->jumlah_bayar}}</td>
+                        <td>{{$od->kembalian}}</td>
+                    </tr>
+                    @php($i++)
+                    @endforeach
+                    @else
+                    <tr>
+                        <td colspan="3" class="ga-ada-product">Product Tidak Di temukan</td>
+                    </tr>
+                    @endif
+                </tr>
+        </table>
+        <div class="pagination">
+            {{ $order->links('pagination::default')}}
         </div>
-
+    </div>
+    <div class="space-dashboard"></div>
 </div>
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    var pendapatan = <?php echo json_encode($total_harga) ?>;
+    var bulan = <?php echo json_encode($bulan) ?>;
+    Highcharts.chart('grafik', {
+        title : {
+            text: 'Data Bulanan'
+        },
+        xAxis : {
+            categories : bulan
+        },
+        yAxis : {
+            title: {
+                text : 'Nominal Pendapatan Bulanan'
+            }
+        },
+        plotOptions : {
+            series: {
+                allowPointSelect: true
+            }
+        },
+        series: [
+            {
+                name: 'Nominal Pendapatan',
+                data: pendapatan
+            }
+        ]
+    });
+
+    var pendapatanHarian = <?php echo json_encode($total_harian) ?>;
+    var harian = <?php echo json_encode($harian) ?>;
+    Highcharts.chart('grafikHarian', {
+        chart:{
+            type:'column'
+        },
+        title : {
+            text: 'Data harian'
+        },
+        xAxis : {
+            categories : harian
+        },
+        yAxis : {
+            title: {
+                text : 'Nominal Pendapatan Harian'
+            }
+        },
+        plotOptions : {
+            series: {
+                allowPointSelect: true
+            }
+        },
+        series: [
+            {
+                name: 'Nominal Pendapatan Harian',
+                data: pendapatanHarian
+            }
+        ]
+    });
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>

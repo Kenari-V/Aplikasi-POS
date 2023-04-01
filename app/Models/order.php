@@ -10,7 +10,7 @@ class order extends Model
 {
     use HasFactory;
     protected $table = 'order';
-protected $primaryKey = 'id_order';
+    protected $primaryKey = 'id_order';
     public $timestamps = false;
     public function customer()
     {
